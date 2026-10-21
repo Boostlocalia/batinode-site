@@ -12,7 +12,7 @@
 (function () {
   var box = document.querySelector('[data-founders]');
   if (!box) return;
-  var total = 100;
+  var total = 50;
   function render(taken) {
     taken = Math.max(0, Math.min(total, taken | 0));
     box.querySelector('[data-left]').textContent = String(total - taken);

@@ -91,3 +91,6 @@ footer a{color:var(--gris)}
 .legal th,.legal td{border:1px solid var(--bord);padding:8px 10px;text-align:left;vertical-align:top}
 .legal th{background:var(--carte)}
 .stat{font-family:"Poppins",Helvetica,Arial,sans-serif;font-size:34px;font-weight:700;color:var(--vert);line-height:1.1;margin-bottom:6px}
+.shot{display:block;width:100%;max-width:980px;height:auto;margin:0 auto;border-radius:16px;border:1px solid var(--bord);box-shadow:0 20px 60px rgba(0,0,0,.45)}
+.note{color:var(--gris);font-size:13px;text-align:center;margin:12px 0 0}
+.guarantee+.guarantee{margin-top:12px}
