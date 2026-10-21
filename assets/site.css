@@ -94,3 +94,9 @@ footer a{color:var(--gris)}
 .shot{display:block;width:100%;max-width:980px;height:auto;margin:0 auto;border-radius:16px;border:1px solid var(--bord);box-shadow:0 20px 60px rgba(0,0,0,.45)}
 .note{color:var(--gris);font-size:13px;text-align:center;margin:12px 0 0}
 .guarantee+.guarantee{margin-top:12px}
+
+/* bandeau cookies (Meta pixel) */
+.consent{position:fixed;left:16px;right:16px;bottom:16px;z-index:50;max-width:560px;margin:0 auto;background:var(--carte);border:1px solid var(--bord);border-radius:14px;padding:16px 18px;box-shadow:0 12px 40px rgba(0,0,0,.5);font-size:14px;color:var(--texte)}
+.consent p{margin:0 0 12px}
+.consent-actions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+.consent button{cursor:pointer;font-size:14px}

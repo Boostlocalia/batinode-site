@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://bkmzstdviytslegbxsax.supabase.co; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://connect.facebook.net; style-src 'self'; img-src 'self' data: https://www.facebook.com; font-src 'self'; connect-src 'self' https://bkmzstdviytslegbxsax.supabase.co https://www.facebook.com https://connect.facebook.net; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
 <meta name="referrer" content="strict-origin-when-cross-origin">
 <title>BatiNode – Vos prix matériaux demandés à 5 fournisseurs | Entrepreneurs du bâtiment</title>
 <meta name="description" content="BatiNode demande vos prix à 5 fournisseurs de votre région et vous compare les offres. Les fournisseurs ont 48 h pour répondre. Plateforme belge des entrepreneurs du bâtiment. Prix de lancement : 50 places fondateur.">
@@ -26,7 +26,7 @@
 <meta name="twitter:image" content="https://batinode.be/assets/og-fr.png">
 <meta name="theme-color" content="#09090b">
 <meta property="og:url" content="https://batinode.be/">
-<link rel="stylesheet" href="/assets/site.css">
+<link rel="stylesheet" href="/assets/site.css?v=5">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"BatiNode","url":"https://batinode.be","logo":"https://batinode.be/assets/logo.png","email":"support@batinode.be","legalName":"Modern X Renov SRL","vatID":"BE1015519625","address":{"@type":"PostalAddress","streetAddress":"Ruisbroeksesteenweg 9","postalCode":"1600","addressLocality":"Sint-Pieters-Leeuw","addressCountry":"BE"}}</script>
 </head>
 <body>
@@ -216,9 +216,13 @@
 <footer>
   <div class="wrap">
     <span>© 2026 BatiNode · Modern X Renov SRL · BE1015519625 · Ruisbroeksesteenweg 9, 1600 Sint-Pieters-Leeuw</span>
-    <span><a href="/legal/mentions.html">Mentions légales</a> · <a href="/legal/conditions.html">Conditions</a> · <a href="/legal/confidentialite.html">Confidentialité</a> · <a href="/legal/cookies.html">Cookies</a> · <a href="mailto:support@batinode.be">Contact</a></span>
+    <span><a href="/legal/mentions.html">Mentions légales</a> · <a href="/legal/conditions.html">Conditions</a> · <a href="/legal/confidentialite.html">Confidentialité</a> · <a href="/legal/cookies.html">Cookies</a> · <a href="#cookies" data-consent-open>Choix cookies</a> · <a href="mailto:support@batinode.be">Contact</a></span>
   </div>
 </footer>
-<script src="/assets/site.js?v=4" defer></script>
+<div class="consent" id="consent" role="dialog" aria-label="Cookies" hidden>
+  <p>Nous aimerions utiliser le pixel Meta (Facebook, Instagram) pour mesurer l'efficacité de nos publicités. Il ne s'active que si vous l'acceptez. <a href="/legal/cookies.html">En savoir plus</a></p>
+  <div class="consent-actions"><button type="button" class="btn ghost sm" data-consent="no">Refuser</button><button type="button" class="btn ghost sm" data-consent="yes">Accepter</button></div>
+</div>
+<script src="/assets/site.js?v=5" defer></script>
 </body>
 </html>

@@ -39,3 +39,55 @@
   setInterval(function () { if (!document.hidden) refresh(); }, 60000);
   document.addEventListener('visibilitychange', function () { if (!document.hidden) refresh(); });
 })();
+
+// Pixel Meta : chargé uniquement après accord explicite (bandeau, refuser aussi simple qu'accepter).
+// Le choix est gardé 6 mois dans ce navigateur ; le lien « Choix cookies » du pied de page le rouvre.
+(function () {
+  var PIXEL = '1604783871421166';
+  var KEY = 'bn_consent';
+  var box = document.getElementById('consent');
+  if (!box) return;
+  function read() {
+    try {
+      var v = JSON.parse(localStorage.getItem(KEY) || 'null');
+      return v && Date.now() - v.at < 182 * 864e5 ? v.choice : null;
+    } catch (e) { return null; }
+  }
+  function save(choice) {
+    try { localStorage.setItem(KEY, JSON.stringify({ choice: choice, at: Date.now() })); } catch (e) {}
+  }
+  var loaded = false;
+  function load() {
+    if (loaded) return;
+    loaded = true;
+    var n = (window.fbq = function () { n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments); });
+    if (!window._fbq) window._fbq = n;
+    n.push = n; n.loaded = true; n.version = '2.0'; n.queue = [];
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://connect.facebook.net/en_US/fbevents.js';
+    document.head.appendChild(s);
+    window.fbq('init', PIXEL);
+    window.fbq('track', 'PageView');
+  }
+  // Un clic vers l'inscription dans l'app compte comme « Lead ».
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="https://app.batinode.be"]');
+    if (a && loaded && window.fbq) window.fbq('track', 'Lead', { content_name: a.textContent.trim() });
+  });
+  box.addEventListener('click', function (e) {
+    var b = e.target.closest('[data-consent]');
+    if (!b) return;
+    var choice = b.getAttribute('data-consent');
+    save(choice);
+    box.hidden = true;
+    if (choice === 'yes') load();
+    else if (loaded) location.reload();
+  });
+  document.querySelectorAll('[data-consent-open]').forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); box.hidden = false; });
+  });
+  var choice = read();
+  if (choice === 'yes') load();
+  else if (choice !== 'no') box.hidden = false;
+})();
